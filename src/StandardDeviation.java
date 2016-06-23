@@ -1,7 +1,5 @@
 
 import java.util.ArrayList;
-import java.util.Collections;
-import static java.util.Collections.list;
 import java.util.List;
 import java.util.Scanner;
 
@@ -32,35 +30,51 @@ public class StandardDeviation {
             System.out.print(":: ");
             int choice = input.nextInt();
 
-            switch (choice) {
-                case 1:
-                    boolean done = false;
-                    System.out.println("Type something other than a number to exit");
-                    while (!done) {
-                        System.out.print("Enter a number to add to the data: ");
-                        try {
-                            data.add(input.nextFloat());
-                            numItems++;
-                        } catch (Exception e) {
+            if (choice == 1) {
+                boolean done = false;
+                System.out.println("Type -0 to Exit");
+                while (!done) {
+                    System.out.print("Enter a number to add to the data: ");
+                    try {
+                        float toAdd = input.nextFloat();
+                        if (toAdd == -0) {
                             done = true;
+                        } else {
+                            data.add(toAdd);
+                            numItems++;
                         }
-                    }
-                case 2:
+                    } catch (Exception e) {
 
-                case 3:
-                    data.clear();
-                    numItems = 0;
-                case 4:
-                    System.exit(0);
-                case 5:
-                    for (float f : data) {
-                        System.out.println(f);
                     }
-                    System.out.println(numItems);
-                default:
-                    System.out.println("Enter a valid option");
+                }
+            } else if (choice == 2) {
+                //get the average first
+                float sum = 0;
+                for (float f : data) {
+                    sum += f;
+                }
+                float mean = sum / numItems;
+                //the sum of the upper half of the fraction
+                float sSum = 0;
+                for (float f : data) {
+                    sSum += (f - mean) * (f - mean);
+                }
+                float sigma = sSum / (numItems - 1);
+                sigma = (float) (Math.sqrt(sigma));
+                System.out.println("The standard deveation of the data is " + sigma);
+            } else if (choice == 3) {
+                data.clear();
+                numItems = 0;
+            } else if (choice == 4) {
+                System.exit(0);
+            } else if (choice == 5) {
+                for (float f : data) {
+                    System.out.println(f);
+                }
+                System.out.println(numItems);
+            } else {
+                System.out.println("Enter a valid option");
             }
-
         }
     }
 
