@@ -20,7 +20,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         List<Float> data = new ArrayList<Float>();
-        int numItems = 0;
 
         while (true) {
             System.out.println("1. Add data");
@@ -42,18 +41,17 @@ public class Main {
                             done = true;
                         } else {
                             data.add(toAdd);
-                            numItems++;
                         }
                     } catch (Exception e) {
                         System.out.println("Input a valid entry");
                     }
                 }
             } else if (choice == 2) {
-                float sigma = StandardDeviation.findSigma(data, numItems);
+                float sigma = StandardDeviation.findSigma(data);
                 System.out.println("The standard deveation of the data is " + sigma);
             } else if (choice == 3) {
                 //find z score
-                if (numItems == 0) {
+                if (data.isEmpty()) {
                     System.out.println("Opps! No data!");
                 } else {
                     System.out.println("Enter the value of the data you want to find the Z Score of (The number"
@@ -68,7 +66,7 @@ public class Main {
                     }
                     //if the number entered is in the data
                     if(good) {
-                        float zscore = ZScore.findZ(toZ, data, numItems);
+                        float zscore = ZScore.findZ(toZ, data);
                         System.out.println("The Z Score of " + toZ + " is " + zscore);
                     } else {
                         System.out.println("That number does not appear in the data!");
@@ -76,7 +74,6 @@ public class Main {
                 }
             } else if (choice == 4) {
                 data.clear();
-                numItems = 0;
                 System.out.println("Data Cleared");
             } else if (choice == 5) {
                 System.exit(0);

@@ -12,11 +12,12 @@ import java.util.List;
  */
 public class ZScore {
 
-    public static float findZ(float toZ, List<Float> data, int numItems) {
+    public static float findZ(float toZ, List<Float> data) {
         //Find mean
-        float mean = Mean.FindMean(data, numItems);
+        int numItems = data.size();
+        float mean = Mean.FindMean(data);
         //find standard deviation
-        float sigma = StandardDeviation.findSigma(data, numItems);
+        float sigma = StandardDeviation.findSigma(data);
         //find zscore
         float ZScore = (toZ - mean) / sigma;
         return ZScore;

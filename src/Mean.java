@@ -12,11 +12,12 @@ import java.util.List;
  */
 public class Mean {
 
-    public static float FindMean(List<Float> data, int numItems) {
+    public static float FindMean(List<Float> data) {
         float sum = 0;
         for(float f : data) {
             sum += f;
         }
+        int numItems = data.size();
         float mean = sum/numItems;
         return mean;
     }
