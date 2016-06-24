@@ -77,7 +77,7 @@ public class Main {
             } else if (choice == 4) {
                 data.clear();
                 numItems = 0;
-                System.out.println("Done");
+                System.out.println("Data Cleared");
             } else if (choice == 5) {
                 System.exit(0);
             }
