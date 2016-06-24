@@ -20,8 +20,7 @@ public class StandardDeviation {
         for (float f : data) {
             sSum += (f - mean) * (f - mean);
         }
-        float sigma = sSum / (numItems - 1);
-        sigma = (float) (Math.sqrt(sigma));
+        float sigma = (float) (Math.sqrt(sSum / (numItems - 1)));
         return sigma;
     }
 }
