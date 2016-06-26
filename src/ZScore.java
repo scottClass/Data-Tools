@@ -22,4 +22,9 @@ public class ZScore {
         float ZScore = (toZ - mean) / sigma;
         return ZScore;
     }
+    
+    public static float findZ(float toZ, float mean, float sigma) {
+        float ZScore = (toZ - mean) / sigma;
+        return ZScore;
+    }
 }

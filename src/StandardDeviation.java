@@ -24,4 +24,5 @@ public class StandardDeviation {
         float sigma = (float) (Math.sqrt(sSum / (numItems - 1)));
         return sigma;
     }
+    
 }
